@@ -1,0 +1,24 @@
+# Render deployment for The Listening Porch.
+# Free tier works for a first launch. See README.md for the catch:
+# the free tier filesystem is ephemeral, so the SQLite database resets
+# whenever Render restarts or redeploys the service. For a real community
+# that keeps its members and posts, add a persistent disk (paid instance).
+
+services:
+  - type: web
+    name: listening-porch
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DATABASE_PATH
+        value: data/porch.db
+      # Add your admin handle(s) here after you create your account, e.g.:
+      # - key: ADMIN_HANDLES
+      #   value: YourHandle

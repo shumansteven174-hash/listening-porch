@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1"
+  },
+  "description": "The Listening Porch \u2014 a peer support community. Server-backed web app (Express + SQLite).",
+  "license": "UNLICENSED",
+  "main": "server.js",
+  "name": "listening-porch",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "version": "1.0.0"
+}
